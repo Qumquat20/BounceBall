@@ -30,10 +30,10 @@ def fall(initialPos):
         t.goto(0, initialPos - getYpos(time))
         
         #if c%40 == 0: t.write(t.ycor(), align="left")
-        if c%40 == 0: print(getVelocity(time))
+        if c%20 == 0: print(getVelocity(time))
 
         c += 1
-        time += 0.025
+        time += 0.05
     t.impactVelocity = getVelocity(time)
     print(t.impactVelocity)
 
@@ -56,10 +56,10 @@ def bounce():
         t.goto(0, bounceY(initialVelocity,time)+12)
         
         #if c%40 == 0: t.write(t.ycor())
-        if c%40 == 0: print(getBounceVel(initialVelocity,time))
+        if c%20 == 0: print(getBounceVel(initialVelocity,time))
 
 
-        time += 0.025
+        time += 0.05
         c += 1
     return t.ycor()
         
@@ -67,5 +67,3 @@ fall(t.initialPos)
 while True:
     if t.ycor() - 12 <= 0:
         fall(bounce())
-
-exitonclick()
